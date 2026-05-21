@@ -3,7 +3,7 @@ import Hero from "@/components/marketing/Hero";
 import Footer from "@/components/marketing/Footer";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { ShieldCheck, Home as HomeIcon, CreditCard, Stethoscope, Syringe, Bug, Activity } from "lucide-react";
+import { ShieldCheck, Home as HomeIcon, CreditCard, Stethoscope, Syringe, Bug, Activity, HeartPulse } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
@@ -60,8 +60,59 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Placeholder for the rest of the page to avoid errors in this step */}
-      <div id="rest-of-page"></div>
+      {/* Servicios Destacados */}
+      <section className="py-24 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl text-forest mb-4">Servicios veterinarios a domicilio</h2>
+            <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">Atención programada para el cuidado diario, preventivo y de seguimiento de tu mascota.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { icon: <Stethoscope size={28}/>, title: "Consulta general", desc: "Para revisar síntomas, resolver dudas de salud o hacer seguimiento básico." },
+              { icon: <Syringe size={28}/>, title: "Vacunación", desc: "Vacunas para perros y gatos sin desplazamientos ni sala de espera." },
+              { icon: <Bug size={28}/>, title: "Desparasitación", desc: "Prevención adaptada a la edad, peso y estilo de vida de tu mascota." },
+              { icon: <Activity size={28}/>, title: "Revisión geriátrica", desc: "Atención tranquila para mascotas mayores en su propio entorno." },
+              { icon: <HeartPulse size={28}/>, title: "Analíticas y muestras", desc: "Recogida de muestras y coordinación con laboratorio cuando sea necesario." }
+            ].map((service, i) => (
+              <Card key={i} className="flex flex-col h-full border border-forest/5 hover:border-sage transition-colors">
+                <div className="w-14 h-14 bg-eucalyptus rounded-full flex items-center justify-center text-forest mb-6">
+                  {service.icon}
+                </div>
+                <h3 className="text-2xl font-heading text-forest mb-3">{service.title}</h3>
+                <p className="text-charcoal/80 mb-8 flex-grow">{service.desc}</p>
+                <Link href="/reservar" className="text-forest font-semibold flex items-center gap-2 hover:text-terracotta transition-colors">
+                  Reservar <span className="text-xl">→</span>
+                </Link>
+              </Card>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link href="/servicios">
+              <Button variant="outline">Ver todos los servicios</Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Zonas y CTA Final */}
+      <section className="py-24 px-6 bg-forest text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl text-ivory mb-6">Bienestar que se siente en casa.</h2>
+          <p className="text-xl text-eucalyptus mb-12 max-w-2xl mx-auto">
+            Empezamos en Madrid Sur. Comprueba si llegamos a tu código postal y dale a tu mascota la atención que merece sin estrés.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/reservar" className="w-full sm:w-auto">
+              <Button variant="accent" className="w-full text-lg px-10 py-4">
+                Comprobar zona y reservar
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
       
       <Footer />
     </main>

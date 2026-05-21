@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #1E3D2F;
+  --color-sage: #A6B89E;
+  --color-eucalyptus: #C7D6CB;
+  --color-terracotta: #C97D5D;
+  --color-ivory: #FAF7F2;
+  --color-white: #FFFFFF;
+  --color-charcoal: #1F1F1F;
+  --font-heading: var(--font-caprasimo);
+  --font-sans: var(--font-inter);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-charcoal);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: normal;
+  }
+}
