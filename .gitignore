@@ -29,6 +29,9 @@ yarn-error.log*
 # local agent/session state
 .superpowers/
 
+# local reference assets and private docs
+Veterinarios/
+
 # vercel
 .vercel
 
